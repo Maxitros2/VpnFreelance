@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Vpn.CloseDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vpn"
+             mc:Ignorable="d" 
+             d:DesignHeight="92" d:DesignWidth="300">
+    <Grid Background="#FF2F2F2F">
+        <Label Content="Are you sure you want to exit?" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Top" FontFamily="MS Reference Sans Serif" FontSize="18" Foreground="White"/>
+        <Label Content="(you will be disconnected from VPN)" HorizontalAlignment="Center" Margin="36,24,34,0" VerticalAlignment="Top" FontFamily="MS Reference Sans Serif" Foreground="Red" Background="{x:Null}"/>
+        <Label x:Name="YesButton" Content="Yes" HorizontalAlignment="Left" Margin="40,54,0,0" VerticalAlignment="Top" FontFamily="MS Reference Sans Serif" FontSize="18" Foreground="White" MouseEnter="Label_MouseEnter" MouseLeave="Label_MouseLeave"/>
+        <Label x:Name="NoButton" Content="No" HorizontalAlignment="Right" Margin="0,54,40,0" VerticalAlignment="Top" FontFamily="MS Reference Sans Serif" FontSize="18" Foreground="White"  MouseLeave="Label_MouseLeave" MouseEnter="Label_MouseEnter_1"/>
+    </Grid>
+</UserControl>

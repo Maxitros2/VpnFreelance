@@ -1,0 +1,195 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:local="clr-namespace:Vpn"
+        x:Class="Vpn.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="300" ResizeMode="CanMinimize" WindowStyle="None" Icon="pack://siteoforigin:,,,/Resources/vpn.ico" Closing="Window_Closing">
+    <Border BorderBrush="Black" BorderThickness="1">
+        <Canvas>
+            <Canvas x:Name="MainCanvas" Height="448" Width="298">
+                <Canvas.Effect>
+                    <BlurEffect Radius="0"/>
+                </Canvas.Effect>
+                <Grid Width="298" Height="448">
+
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF8F6A85" Offset="0"/>
+                            <GradientStop Color="#FF2E2E2E" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="131*"/>
+                        <RowDefinition Height="43*"/>
+                        <RowDefinition  Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid x:Name="Head" Grid.Row="0" Margin="0" Grid.RowSpan="1               " Background="#FF38342A">
+                        <Image RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="109" Source="pack://siteoforigin:,,,/Resources/vpn+icon-13201833288006229442.png" Margin="10,0,0,0"/>
+                        <Label VerticalContentAlignment="Center" Content="REMITLI" HorizontalAlignment="Right" Margin="0,0,8,0" VerticalAlignment="Top" Width="178" Height="70" Foreground="White" FontFamily="MS Reference Sans Serif" FontSize="40                    "/>
+                        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="3" Margin="0,57,0,0" VerticalAlignment="Top" Width="282"/>
+                        <Grid HorizontalAlignment="Left" Height="19" Margin="278,0,0,0" VerticalAlignment="Top" Width="20" MouseDown="Grid_PreviewMouseDown_1">
+                            <Rectangle Margin="0,8" RenderTransformOrigin="0.5,0.5" Height="2" Fill="#FF7A7A7A">
+                                <Rectangle.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="45"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+                            <Rectangle Margin="0,8.5" RenderTransformOrigin="0.5,0.5" Height="2" Fill="#FF7A7A7A">
+                                <Rectangle.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="135"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+                            <Rectangle HorizontalAlignment="Left" Height="19" Margin="0" VerticalAlignment="Top" Width="20" Fill="#00000000"/>
+                        </Grid>
+                        <Grid HorizontalAlignment="Left" Height="19" Margin="251,0,0,0" VerticalAlignment="Top" Width="20">
+                            <Rectangle Margin="0,8" RenderTransformOrigin="0.5,0.5" Height="2" Fill="#FF7A7A7A"/>
+                        </Grid>
+
+                    </Grid>
+                    <Border Grid.Row="3" Margin="0" BorderThickness="0" BorderBrush="#FF172448" >
+                        <Grid Background="#FF2F2F2F">
+                            <Label Content="Visit our site" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Foreground="White"/>
+                        </Grid>
+
+                    </Border>
+                    <Grid Margin="0" Grid.Row="1" Grid.RowSpan="1">
+                        <Grid x:Name="conngrid" Margin="54,15,54,58" PreviewMouseDown="Grid_PreviewMouseDown">
+                            <Rectangle x:Name="BackGroundHeat" RadiusX="200" RadiusY="200" RenderOptions.BitmapScalingMode="HighQuality" Height="189" Margin="0,0,1,0" Width="189" Fill="Red" Opacity="0.2">
+                                <Rectangle.Effect>
+                                    <BlurEffect Radius="25"/>
+                                </Rectangle.Effect>
+                            </Rectangle>
+                            <Grid x:Name="Grid4Lock" Margin="0,0,1,0">
+
+                                <Image x:Name="LockImage1" RenderOptions.BitmapScalingMode="HighQuality" Height="189" Width="189" Source="pack://siteoforigin:,,,/Resources/vpnDisabled.png"/>
+                                <Image x:Name="LockImage2" RenderOptions.BitmapScalingMode="HighQuality" Height="189" Width="189" Source="pack://siteoforigin:,,,/Resources/UIHere.png" Visibility="Hidden"/>
+
+                            </Grid>
+
+                            <Grid Margin="0,80,1,79"/>
+                            <Label x:Name="InfoLabel" Content="Click here to connect" Margin="-53,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontFamily="MS Reference Sans Serif" FontSize="16                                                        " Opacity="0.7" RenderTransformOrigin="0.5,0.5"
+                           >
+                                <Label.Effect>
+                                    <DropShadowEffect Direction="226" Opacity="0.3"/>
+                                </Label.Effect>
+                            </Label>
+
+                        </Grid>
+                        <Grid Margin="0,223,0,0" Background="#FF2F2F2F">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="VPN status:" VerticalAlignment="Top" HorizontalAlignment="Right" FontFamily="MS Reference Sans Serif" FontSize="22" Padding="0,5" Margin="9,0,4,0" Width="129" Foreground="White">
+                                <Label.Effect>
+                                    <DropShadowEffect Direction="226" Opacity="0.3"/>
+                                </Label.Effect>
+                            </Label>
+                            <Label x:Name="Status" Content="OFFLINE" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="MS Reference Sans Serif" FontSize="22" Padding="0,5" Width="129" Foreground="Red" Grid.Column="1" Margin="4,0,0,0">
+                                <Label.Effect>
+                                    <DropShadowEffect Direction="226" Opacity="0.3"/>
+                                </Label.Effect>
+                            </Label>
+                        </Grid>
+                    </Grid>
+                    <Grid Margin="0" Grid.Row="2">
+                        <Grid VerticalAlignment="Bottom" Background="#4C38342A" Opacity="0.84">
+
+                            <Label Content="Selected region:" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="MS Reference Sans Serif" FontSize="16" Height="32" VerticalContentAlignment="Center"/>
+                            <Image x:Name="SelectedRegionFlag" RenderOptions.BitmapScalingMode="Fant" HorizontalAlignment="Right" Height="32" Margin="0,0,5,0" VerticalAlignment="Top" Width="34" Stretch="Fill"/>
+                            <Label x:Name="SelectadRegionText" Content="not available" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontFamily="MS Reference Sans Serif" FontSize="18" Margin="0,0,39,0" HorizontalContentAlignment="Right"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Margin="0,0,0,36" Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Margin="0" MouseEnter="Grid_PreviewMouseMove" MouseLeave="Grid_MouseLeave">
+                            <Image RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center" Height="40" VerticalAlignment="Center" Width="40" Margin="0" Source="pack://siteoforigin:,,,/Resources/settings.png"/>
+                            <Rectangle Margin="0" StrokeThickness="8" Fill="#00000000"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Margin="0" MouseEnter="Grid_PreviewMouseMove" MouseLeave="Grid_MouseLeave" PreviewMouseDown="Grid_PreviewMouseDown_3">
+                            <Image  RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center" Height="40" VerticalAlignment="Center" Width="40" Source="pack://siteoforigin:,,,/Resources/servers.png"/>
+                            <Rectangle Margin="0" StrokeThickness="8" Fill="#00000000"/>
+
+                        </Grid>
+
+                    </Grid>
+                    <Grid x:Name="ServerList" HorizontalAlignment="Left" Height="348" Grid.Row="1" VerticalAlignment="Top" Width="298" Grid.RowSpan="2" Background="#FF2F2F2F" Visibility="Hidden">
+                        <Label Content="Select server:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="298" Height="38" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" FontSize="18"/>
+                        <StackPanel x:Name="StackServers" Margin="0,43"/>
+                        <Grid MouseEnter="Grid_PreviewMouseMove" MouseLeave="Grid_MouseLeave" Margin="0,305,0,0" PreviewMouseDown="Grid_PreviewMouseDown_2">
+                            <Label Content="GO BACK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="298" Height="43" Background="{x:Null}" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
+                            <Rectangle Margin="0" StrokeThickness="8" Fill="#00000000"/>
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+            </Canvas>
+            <local:CloseDialog x:Name="ClosingDialog" Height="100" Canvas.Top="188" Width="298" Visibility="Hidden"/>
+            <Grid x:Name="LoadingPanel" Height="448" Width="298" d:IsHidden="True">
+                <Ellipse HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="100" Height="100" StrokeThickness="8" Stroke="Gray"/>
+                <Grid x:Name="LoadingRot" Margin="124,199" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Border Margin="0" Height="50" Width="50" RenderTransformOrigin="1,1">
+                        <Border.Effect>
+                            <BlurEffect Radius="8"/>
+                        </Border.Effect>
+                        <Border.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform X="-25" Y="-25"/>
+                            </TransformGroup>
+                        </Border.RenderTransform>
+                        <Ellipse HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="100" StrokeThickness="8" Stroke="#FFBDBDBD" Margin="0"/>
+
+
+                    </Border>
+                    <Border Height="50" Width="50" RenderTransformOrigin="1,1">
+                        <Border.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform X="-25" Y="-25"/>
+                            </TransformGroup>
+                        </Border.RenderTransform>
+                        <Ellipse HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="100" StrokeThickness="8" Stroke="#FFBDBDBD" Margin="0"/>
+
+
+                    </Border>
+
+
+                </Grid>
+                <Label Content="Updating VPN servers..." HorizontalAlignment="Center" Margin="0,0,0,-127" VerticalAlignment="Center" Background="{x:Null}" Foreground="Gainsboro" FontSize="16"/>
+
+
+            </Grid>
+
+        </Canvas>
+    </Border>
+</Window>
